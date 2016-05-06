@@ -37,3 +37,11 @@ en:
 
   controller:
     message: "Invalid email/password combination"
+  create:
+    message_success: "Welcome to the Framgia Training System!"
+  shared:
+    error: "error"
+    confirmation: "Confirmation"
+    content: "The form contains"
+    signup: "Sign up"
+    btn_create: "Create my account"

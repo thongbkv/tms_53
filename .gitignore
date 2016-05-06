@@ -28,3 +28,6 @@ config/environments/*.local.yml
 # Ignore application configuration
 /config/application.yml
 .byebug_history
+config/settings/development.yml
+config/settings/production.yml
+config/settings/test.yml

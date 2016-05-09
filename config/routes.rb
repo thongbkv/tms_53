@@ -3,5 +3,12 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
+  get "signup" => "users#new"
   resources :users, except: [:edit, :update, :destroy]
+  resources :courses, only: [:show]
+
+  namespace :admin do
+    resources :users
+    resources :courses, except: [:edit, :update, :destroy]
+  end
 end

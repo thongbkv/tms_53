@@ -21,5 +21,19 @@
 en:
   static_pages:
     home: "Home"
-    login: "Login"
+    login: "Log in"
     signup: "Sign Up"
+    logout: "Logout"
+    users: "Users"
+
+  layouts:
+    account: "Account"
+    profile: "Profile"
+    setting: "Setting"
+    signup: "Sign up now!"
+    new_user: "New user?"
+    remember: "Remember me on this computer"
+    title: "tms_53"
+
+  controller:
+    message: "Invalid email/password combination"

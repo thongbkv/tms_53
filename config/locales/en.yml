@@ -45,3 +45,5 @@ en:
     content: "The form contains"
     signup: "Sign up"
     btn_create: "Create my account"
+  users:
+    all: "All users"

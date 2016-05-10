@@ -53,3 +53,8 @@ en:
     form: "The form contains"
   admin:
     add_course_success: "Made course!"
+    delete_course: "Delete"
+    edit_course: "Edit"
+    course_name: "Name"
+    course_des: "Description"
+    list_course: "List courses"

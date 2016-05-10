@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :avatar
       t.string :password_digest
       t.string :remember_digest
-      t.integer :role
+      t.integer :role, default: 2
 
       t.timestamps null: false
     end

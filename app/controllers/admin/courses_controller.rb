@@ -1,6 +1,14 @@
 class Admin::CoursesController < ApplicationController
   before_action :logged_in_user, :require_admin
 
+  def index
+    @courses = Course.all
+  end
+
+  def show
+    @course = Course.find params[:id]
+  end
+
   def new
     @course = Course.new
   end

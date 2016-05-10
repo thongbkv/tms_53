@@ -109,9 +109,9 @@ ActiveRecord::Schema.define(version: 20160506090516) do
     t.string   "avatar"
     t.string   "password_digest"
     t.string   "remember_digest"
-    t.integer  "role"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "role",            default: 2
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

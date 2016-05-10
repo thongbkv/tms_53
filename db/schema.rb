@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20160506090516) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "status",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160506090516) do
     t.string   "avatar"
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.integer  "role"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

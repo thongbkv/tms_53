@@ -1,0 +1,19 @@
+<%= form_for [:admin, @subject] do |f| %>
+  <%= render "shared/error_messages", object: @subject %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+
+  <%= f.label :tasks %>
+  <%= f.fields_for :tasks do |builder| %>
+    <%= render "task_fields", f: builder %>
+  <% end %>
+  
+  <p>
+    <%= link_to_add_fields f, :tasks %>
+  </p>
+  
+  <%= f.submit t "layouts.create_subject", class: "btn btn-primary" %>
+<% end %>

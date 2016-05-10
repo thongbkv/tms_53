@@ -58,3 +58,6 @@ en:
     course_name: "Name"
     course_des: "Description"
     list_course: "List courses"
+    update_course: "Save changes"
+    edit_course_message: "Edit course success!"
+    edit_course_form: "Edit course"

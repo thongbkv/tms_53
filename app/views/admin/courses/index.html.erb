@@ -14,7 +14,7 @@
             <td><%= course.name %></td>
             <td><%= course.description %></td>
             <td><%= link_to t("admin.delete_course"), "#" %></td>
-            <td><%= link_to t("admin.edit_course"), "#" %></td>
+            <td><%= link_to t("admin.edit_course"), edit_admin_course_path(course) %></td>
           </tr>
         <% end %>
       </tbody>

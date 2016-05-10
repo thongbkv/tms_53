@@ -4,7 +4,7 @@ class Course < ActiveRecord::Base
   has_many :users, through: :user_courses
   has_many :subjects, through: :course_subjects
 
-  enum status: [:init, :inprogess, :finished]
+  enum status: [:init, :inprogress, :finished]
 
   validates :name, presence: true, length: {maximum: 255}
 end

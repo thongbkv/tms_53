@@ -51,6 +51,11 @@ en:
   users:
     all: "All users"
     form: "The form contains"
+    edit: "Edit user"
+    save_change: "Save changes"
+    edit_head: "Update your profile"
+    change: "Change"
+    profile_updated: "Profile updated"
   admin:
     add_course_success: "Made course!"
     delete_course: "Delete"

@@ -1,5 +1,5 @@
 module UsersHelper
-  def gravatar_for user, options = {size: Setting.avatar_size_default}
+  def gravatar_for user, options = {size: Settings.avatar_size_default}
     gravatar_id = Digest::MD5::hexdigest user.email.downcase
     size = options[:size]
     gravatar_url = if user.avatar.nil? || user.avatar.empty?

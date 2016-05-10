@@ -1,12 +1,12 @@
 class Admin::CoursesController < ApplicationController
   before_action :logged_in_user, :require_admin
+  before_action :load_course, only: [:show, :edit, :update]
 
   def index
     @courses = Course.all
   end
 
   def show
-    @course = Course.find params[:id]
   end
 
   def new
@@ -23,8 +23,24 @@ class Admin::CoursesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @course.update_attributes course_params
+      flash[:succes] = t "admin.edit_course_message"
+      redirect_to admin_course_path @course
+    else
+      render :edit
+    end
+  end
+
   private
   def course_params
     params.require(:course).permit :name, :description, :status
+  end
+
+  def load_course
+    @course = Course.find params[:id]
   end
 end

@@ -1,6 +1,6 @@
 class Admin::CoursesController < ApplicationController
   before_action :logged_in_user, :require_admin
-  before_action :load_course, only: [:show, :edit, :update]
+  before_action :load_course, except: [:new, :index, :create]
 
   def index
     @courses = Course.all
@@ -33,6 +33,12 @@ class Admin::CoursesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @course.destroy
+    flash[:success] = t "admin.success_delete_message"
+    redirect_to admin_courses_path
   end
 
   private

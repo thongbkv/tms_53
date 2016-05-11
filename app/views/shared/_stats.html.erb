@@ -1,0 +1,19 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <label class = "label=auto">
+    <strong id="following" class="stat">
+      <%= @user.following.count %>
+    </strong>
+    <strong>
+      <%= link_to t("following"), user_relationships_path(@user, {option: Settings.following}) %>
+    </strong>
+  </label>
+  <label class = "label-auto">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    <strong>
+      <%= link_to t("followers"), user_relationships_path(@user, {option: Settings.follower}) %>
+    </strong>
+  </label>
+</div>

@@ -1,2 +1,5 @@
 avatar_size: 80
 avatar_size_default: 50
+avatar_size_profile: 30
+following: "following"
+followers: "followers"

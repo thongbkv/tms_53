@@ -1,0 +1,24 @@
+<% provide :title, t("static_pages.subjects") %>
+<div class="row">
+  <div class="col-md-4">
+    <h2><%= t "admin.edit_subject_form" %></h2>
+    <%= form_for [:admin, @subject] do |f| %>
+      <%= render "shared/error_messages", object: @subject %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control" %>
+
+      <%= f.label :tasks %>
+      <%= f.fields_for :tasks do |builder| %>
+        <%= render "task_fields", f: builder %>
+      <% end %>
+  
+      <p><%= link_to_add_fields f, :tasks %></p>
+
+      <%= f.submit t("admin.update_subject"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

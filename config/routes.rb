@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   resources :users, except: [:destroy]
   resources :courses, only: [:show, :index]
+  resources :subjects, only: [:show, :index]
 
   namespace :admin do
     resources :users

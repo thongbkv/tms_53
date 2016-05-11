@@ -26,6 +26,7 @@ en:
     logout: "Logout"
     users: "Users"
     course: "Courses"
+    subjects: "Subjects"
 
   layouts:
     account: "Account"

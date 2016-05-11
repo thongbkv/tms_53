@@ -7,4 +7,6 @@ class Course < ActiveRecord::Base
   enum status: [:init, :inprogress, :finished]
 
   validates :name, presence: true, length: {maximum: 255}
+
+  accepts_nested_attributes_for :user_courses, allow_destroy: true
 end

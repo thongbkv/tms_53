@@ -90,3 +90,5 @@ en:
     subject_edit: "Edit"
     subject_delete: "Delete"
     create_subject_to_course: "Make a subject to course"
+    add_supervisor_to_course: "Assign supervisor"
+    create_success_course_user: "Add supervisor success!"

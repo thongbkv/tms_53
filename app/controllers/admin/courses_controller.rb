@@ -1,6 +1,7 @@
 class Admin::CoursesController < ApplicationController
   before_action :logged_in_user, :require_admin
   before_action :load_course, except: [:new, :index, :create]
+  before_action :load_subject, only: [:new, :edit]
 
   def index
     @courses = Course.all
@@ -19,6 +20,7 @@ class Admin::CoursesController < ApplicationController
       flash.now[:success] = t "admin.add_course_success"
       redirect_to admin_course_path @course
     else
+      load_subjects
       render :new
     end
   end
@@ -31,6 +33,7 @@ class Admin::CoursesController < ApplicationController
       flash[:succes] = t "admin.edit_course_message"
       redirect_to admin_course_path @course
     else
+      load_subjects
       render :edit
     end
   end
@@ -43,10 +46,14 @@ class Admin::CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit :name, :description, :status
+    params.require(:course).permit :name, :description, :status, subject_ids:[]
   end
 
   def load_course
     @course = Course.find params[:id]
+  end
+
+  def load_subject
+    @subjects = Subject.all
   end
 end

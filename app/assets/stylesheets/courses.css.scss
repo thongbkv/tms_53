@@ -1,0 +1,62 @@
+.course-name {
+  width: 100px;
+  img{
+  }
+  p{
+    color: blue;
+    font-size: 15px;
+    font-style: bold;
+  }
+}
+.course-description{
+  margin-bottom: 2.5em;
+  .tss{
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 95%;
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
+  }
+}
+.subject_in_course{
+  padding: 15px 20px !important;
+  border-bottom: 1px;
+  background: #f8f8f8;
+  margin: -20px -20px 0;
+  .subject_title{
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+  li{
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+    p{
+      color: grey;
+    font-size: 15px;
+    }
+  }
+}
+.trainee_in_course{
+  h2{
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+}
+.trainer_in_course{
+  h2{
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+}
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

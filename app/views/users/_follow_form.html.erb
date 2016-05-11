@@ -1,0 +1,7 @@
+<% unless current_user? @user %>
+  <div id="follow_form">
+    <% render "unfollow" if current_user.following? @user %>
+    <% render "follow" %>
+    <% end %>
+  </div>
+<% end %>

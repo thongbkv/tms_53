@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy]
   resources :courses, only: [:show, :index]
   resources :subjects, only: [:show, :index]
-
+  resources :users do
+    resources :relationships, only: [:index]
+  end
+  resources :relationships, only: [:create, :destroy, :show]
   namespace :admin do
     resources :users
     resources :courses, except: [:edit, :update, :destroy]

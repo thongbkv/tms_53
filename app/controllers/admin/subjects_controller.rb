@@ -16,8 +16,8 @@ class Admin::SubjectsController < ApplicationController
   def create
     @subject = Subject.new subject_params
     if @subject.save
-      flash[:success] = t "create_subject_success"
-      redirect_to new_admin_subject_path
+      flash[:success] = t "controller.create_subject_success"
+      redirect_to admin_subjects_path
     else
       flash[:danger] = t "error_subject"
       render :new

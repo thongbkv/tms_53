@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6 col-offset-3">
+    <h2><%= t "admin.add_trainee_to_course" %></h2>
+    <%= form_for @course, url: admin_course_assign_trainees_path(@course),
+      method: :patch do |f| %>
+      <%= render "shared/error_messages", object: @course %>
+
+      <% @users.each do |user| %>
+        <%= f.fields_for :user_courses, @course.user_courses.build do |user_course_builder| %>
+          <% if @course_users.include? user %>
+            <%= user_course_builder.check_box :_destroy, {checked: true}, false, true %>
+            <%= user_course_builder.hidden_field :user_id, value: user.id %>
+          <% else %>
+            <%= user_course_builder.check_box :user_id, {checked: false}, user.id, nil %>
+          <% end %>
+          <%= user.name %>
+          <br>
+        <% end %>
+      <% end %>
+      <%= f.submit t("admin.add_trainee_to_course"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

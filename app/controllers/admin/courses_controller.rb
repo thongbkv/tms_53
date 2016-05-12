@@ -31,10 +31,13 @@ class Admin::CoursesController < ApplicationController
 
   def update
     if @course.update_attributes course_params
-      flash[:succes] = t "admin.edit_course_message"
-      redirect_to admin_course_path @course
+      flash[:success] = t "courses.update_success"
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.js
+      end
     else
-      load_subjects
+      flash[:danger] = t "courses.update_error"
       render :edit
     end
   end
@@ -47,7 +50,8 @@ class Admin::CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit :name, :description, :status, subject_ids:[]
+    params.require(:course).permit :name, :description, :status, subject_ids:[],
+      user_ids: []
   end
 
   def load_course

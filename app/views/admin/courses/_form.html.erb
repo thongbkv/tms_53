@@ -1,0 +1,20 @@
+<%= form_for [:admin, @course] do |f| %>
+  <%= render "shared/error_messages", object: @course %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+
+  <%= f.collection_check_boxes :subject_ids, @subjects, :id, :title do |item_subject| %>
+    <span>
+      <%= item_subject.label do %>
+        <%= item_subject.check_box %>&nbsp;
+        <%= item_subject.text %>&nbsp;
+      <% end %>
+    </span>
+  <% end %>
+
+  <%= f.submit t("layouts.create_course"), class: "btn btn-primary" %>
+<% end %>

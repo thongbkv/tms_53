@@ -44,6 +44,7 @@ en:
     message: "Invalid email/password combination"
     create_subject_success: "Create subject success!"
     error_subject: "Error!"
+    destroy_success: "Delete success!"
   create:
     message_success: "Welcome to the Framgia Training System!"
   shared:
@@ -76,3 +77,11 @@ en:
     trainer_in_course: "Trainer"
     list_subject_in_course: "List subjects in course"
     new_course: "Make a new course"
+    update_subject: "Save changes"
+    edit_subject_form: "Edit subject"
+    edit_subject_message: "Edit success"
+    update_subject: "Update subject"
+    subject_title: "Title"
+    subject_description: "Description"
+    subject_edit: "Edit"
+    subject_delete: "Delete"

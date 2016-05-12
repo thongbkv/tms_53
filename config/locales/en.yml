@@ -61,6 +61,11 @@ en:
     edit_head: "Update your profile"
     change: "Change"
     profile_updated: "Profile updated"
+    following: "Following"
+    followers: "Followers"
+    view_profile: "view my profile"
+    follow: "Follow"
+    unfollow: "Unfollow"
   admin:
     add_course_success: "Made course!"
     delete_course: "Delete"

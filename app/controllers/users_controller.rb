@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :show]
   before_action :correct_user, only: [:edit, :update]
-  before_action :load_user
+  before_action :load_user, except: [:index, :new, :create]
 
   def index
     @users = User.paginate page: params[:page]
   end
 
   def show
-    @user = User.find_by params[:id]
   end
 
   def edit
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:success] = t "create.message_success"
-      redirect_to @user
+      redirect_to root_url
     else
       render :new
     end
@@ -44,6 +43,6 @@ class UsersController < ApplicationController
   end
   
   def load_user
-    @user = User.find_by params[:id]
+    @user = User.find_by_id params[:id]
   end
 end

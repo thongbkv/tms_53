@@ -1,9 +1,12 @@
 class Admin::SubjectsController < ApplicationController
   before_action :logged_in_user, :require_admin
-  before_action :find_subject, only: [:edit, :update, :destroy]
+  before_action :find_subject, except: [:new, :index]
 
   def index
     @subjects = Subject.paginate page: params[:page]
+  end
+
+  def show
   end
 
   def new
@@ -47,6 +50,6 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def find_subject
-    @subject = Subject.find params[:id] 
+    @subject = Subject.find params[:id]
   end
 end

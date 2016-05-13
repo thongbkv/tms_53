@@ -1,68 +1,72 @@
-<div class="row">
-  <div class="col-md-8">
-    <div class="col-md-12 course-name">
-      <div class="col-md-8 col-offset-4">
-        <p class="truncate"><%= @course.name %></p>
-      </div>
-      <hr>
-    </div>
-    <div class="col-md-12 course-description">
-      <p class="tss"><%= @course.description %></p>
-    </div>
-    <p class="pull-right">
-      <%= link_to t("admin.assign"), edit_admin_course_assign_trainers_path(@course) %>
-    </p>
-    <hr>
-    <div class="col-md-12 subject_in_course">
-      <p><%= t "admin.list_subject_in_course" %></p>
-      <ul class="subject_title">
-        <% @course.subjects.each do |subject| %>
-          <li><p><%= link_to subject.title, "#" %></p></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="col-md-12 trainer_in_course">
-      <h2><%= t "admin.trainer_in_course" %></h2>
-      <div class="col-md-12">
-        <% @course.users.supervisor.each do |trainer_in_course| %>
-          <div class="avatar">
-            <%= trainer_in_course.avatar %>
+<div id="courses">
+  <div class="tt-main">
+    <div class="tt-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8">
+            <div class="tt-course">
+              <div class="tt-course-summary">
+                <h4><%= @course.name %></h4>
+                <p><%= @course.description %></p>
+                <div class="pull-right">
+                  <p><%= link_to t("admin.add_supervisor_to_course"),
+                    edit_admin_course_assign_trainers_path(@course) %></p>
+                </div>
+              </div>
+              <div class="tt-subject">
+                <p><%= t "admin.list_subject_in_course" %></p>
+                <% @course.subjects.each do |subject| %>
+                  <div class="media">
+                    <div class="media-body">
+                      <p class="media-middle"><%= link_to subject.title, admin_subject_path %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
-          <p class="trainer_name"><%= trainer_in_course.name %></p>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-12 trainee_in_course">
-      <h2><%= t "admin.trainee_in_course" %></h2>
-      <div class="col-md-4">
-        <div class="avatar">
+          <div class="col-xs-12 col-sm-4">
+            <div class="tt-trainer-summary hidden-xs">
+              <div class="tt-course-logo">
+                <img class="img-responsive"
+                 src="https://www.codeschool.com/assets/paths/badge-ruby-8fd86979e1ec714f4f41dd3cabedc651.svg"
+                 alt=t("admin.image_name")>
+              </div>
+            </div>
+            <div class="tt-trainer">
+              <h4><%= t "admin.trainer_in_course" %></h4>
+              <div class="tt-trainee-list">
+                <% @course.users.supervisor.each do |trainer_in_course| %>
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="media-heading"><%= trainer_in_course.name %></h6>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="tt-trainer">
+              <h4><%= t "admin.trainee_in_course" %></h4>
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <th><%= t "admin.stt" %></th>
+                    <th><%= t "admin.course_name" %></th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                    <% @course.users.trainee.each do |trainee_in_course| %>
+                      <tr>
+                        <td><%= link_to trainee_in_course.name, admin_user_path(trainee_in_course) %></td>
+                        <td><%= link_to t("admin.delete_course"), "#",
+                          method: :delete, data: {confirm: t("admin.delete_message")} %>
+                        </td>
+                      </tr>
+                     <% end %>
+                  </tbody>
+                </table>
+            </div>
+          </div>
         </div>
-        <p class="trainer_name"></p>
-        <% unless @members.empty? %>
-          <table class="table table-striped table-hover">
-            <thead>
-              <th><%= t "admin.stt" %></th>
-              <th><%= t "admin.course_name" %></th>
-              <th></th>
-              <th></th>
-            </thead>
-            <tbody>
-              <% @members.each do |member| %>
-                <tr>
-                  <td><%= t "admin.stt" %></td>
-                  <td><%= link_to member.user.name, admin_user_path(member.user) %></td>
-                  <td><%= link_to t("admin.edit_user"),  admin_user_path(member.user) %><td>
-                  <td><%= link_to t("admin.delete_course"), admin_user_course_path(member),
-                    method: :delete, data: {confirm: t("admin.delete_message")} %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        <% end %>
-      </div>
-    </div>
-  </div>
+     </div>
+   </div>
 </div>

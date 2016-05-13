@@ -8,6 +8,7 @@
         <th><%= t "admin.course_description" %></th>
         <th></th>
         <th></th>
+        <th></th>
       </thead>
       <tbody>
         <% @courses.each do |course| %>
@@ -18,6 +19,8 @@
               method: :delete, data: {confirm: t("admin.delete_message")} %>
             </td>
             <td><%= link_to t("admin.edit_course"), edit_admin_course_path(course) %><td>
+            <td><%= link_to t("admin.add_supervisor_to_course"),
+              edit_admin_course_assign_trainers_path(course) %><td>
           </tr>
         <% end %>
       </tbody>

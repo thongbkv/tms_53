@@ -8,3 +8,9 @@
 
 User.create name: "Admin", email: "admin@framgia.com",
   password: "123456", role: :admin
+
+User.create name: "Nguyen Binh Dieu", email: "nguyen.binh.dieu@framgia.com",
+  password: "123456", role: :supervisor
+
+User.create name: "Mai Tuan Viet", email: "mai.tuan.viet@framgia.com",
+  password: "123456", role: :supervisor

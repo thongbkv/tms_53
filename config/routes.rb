@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy, :show]
   namespace :admin do
     resources :users
-    resources :courses
+    resources :courses do
+      resource :assign_trainers, only: [:edit, :update]
+    end
     resources :subjects
   end
 end

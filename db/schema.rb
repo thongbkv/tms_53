@@ -67,11 +67,10 @@ ActiveRecord::Schema.define(version: 20160506090516) do
   add_index "tasks", ["subject_id"], name: "index_tasks_on_subject_id"
 
   create_table "user_courses", force: :cascade do |t|
-    t.boolean  "is_supervisor"
     t.integer  "user_id"
     t.integer  "course_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "user_courses", ["course_id"], name: "index_user_courses_on_course_id"

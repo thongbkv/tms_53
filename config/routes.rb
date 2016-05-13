@@ -17,5 +17,6 @@ Rails.application.routes.draw do
       resource :assign_trainers, only: [:edit, :update]
     end
     resources :subjects
+    resources :user_courses, only: [:destroy]
   end
 end

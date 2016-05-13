@@ -1,0 +1,12 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user, size: Settings.avatar_size_default %>
+        <span><%= t("admin.user_name") %><%= @user.name %></span>
+        <span><%= t("admin.user_email") %><%= @user.email %></span>
+      </h1>
+    </section>
+  </aside>
+</div>

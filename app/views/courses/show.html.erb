@@ -1,0 +1,15 @@
+<% @activities.each do |activity| %>
+<% byebug %>
+  <% if activity.trackable && activity.content &&
+    activity.target_id == @course.id %>
+<% byebug %>
+    <h5>
+      <%= link_to activity.owner.name, activity.owner if activity.owner %>
+      <%= activity.content %>
+      <%= link_to activity.target, "" %>
+      <%= t("activities.time", time: activity.created_at) %>
+    </h5>
+    <hr>
+  <% end %>
+<% byebug %>
+<% end %>

@@ -18,6 +18,11 @@ class Admin::CoursesController < ApplicationController
   def create
     @course = Course.new course_params
     if @course.save
+      @course.create_activity :update_course, owner: current_user,
+        content: t("courses.status", status: @course.status),
+        target: @course.name, target_id: @course.id
+        byebug
+
       flash.now[:success] = t "admin.add_course_success"
       redirect_to admin_course_path @course
     else

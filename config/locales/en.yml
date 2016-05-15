@@ -98,3 +98,9 @@ en:
     user_email: "Email : "
     user_course_success: "Delete success.!"
     user_course_error: "Delete error.!"
+  activities:
+    removed: " which has since been removed"
+    name: "Activities"
+    time: "(%{time})"
+  courses: 
+    status: "%{status} course"

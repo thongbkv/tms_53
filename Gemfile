@@ -36,3 +36,4 @@ group :production do
 end
 
 gem "config"
+gem "public_activity"

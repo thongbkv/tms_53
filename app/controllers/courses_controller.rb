@@ -6,5 +6,6 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find params[:id]
+    @activities = PublicActivity::Activity.all
   end
 end

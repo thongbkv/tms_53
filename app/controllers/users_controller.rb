@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    byebug
   end
 
   def new

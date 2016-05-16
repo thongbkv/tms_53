@@ -5,7 +5,7 @@
         <li><%= link_to t("static_pages.home"), root_path %></li>
         <% if logged_in? && current_user.admin? %>
           <li><%= link_to t("static_pages.course"), admin_courses_path %></li>
-          <li><%= link_to t("static_pages.subjects"), admin_subjects_path %></li>         
+          <li><%= link_to t("static_pages.subjects"), admin_subjects_path %></li>
         <% else%>
            <li><%= link_to t("static_pages.course"), courses_path %></li>
            <li><%= link_to t("static_pages.subjects"), subjects_path %></li>

@@ -29,6 +29,9 @@
       </tbody>
     </table>
   </div>
+  <%= link_to new_admin_subject_path, class: "btn btn-primary btn-xs" do %>
+    <span class="glyphicon glyphicon-eye-open"></span> <%= t "admin.new_subject" %>
+  <% end %>
 </div>
 <div class="text-center">
   <%= will_paginate %>

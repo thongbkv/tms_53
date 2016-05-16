@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 20160506090516) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
@@ -47,6 +49,9 @@ ActiveRecord::Schema.define(version: 20160506090516) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
   add_index "relationships", ["user_id"], name: "index_relationships_on_user_id"
 
   create_table "subjects", force: :cascade do |t|

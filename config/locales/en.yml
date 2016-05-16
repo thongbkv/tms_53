@@ -39,6 +39,7 @@ en:
     create_course: "Make course"
     login_message: "Please login!"
     create_subject: "Create subject"
+    users_admin: "Admin"
   controller:
     message: "Invalid email/password combination"
     create_subject_success: "Create subject success!"
@@ -103,3 +104,12 @@ en:
     view_subject_detail: "Detail"
     list_task_in_subject: "List tasks in subject:"
     image_name: "Trainer Summary"
+    add_user: "Add User"
+    update_user: "Edit User"
+    edit_user_form : "Update User"
+    assign: "Assign"
+    add_trainee_to_course: "Assign Trainee"
+    destroy_user: "Destroy Success!"
+    sure: "You sure?"
+    list_subject: "List Subjects"
+    new_subject: New Subject

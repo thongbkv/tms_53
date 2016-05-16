@@ -14,3 +14,6 @@ User.create name: "Nguyen Binh Dieu", email: "nguyen.binh.dieu@framgia.com",
 
 User.create name: "Mai Tuan Viet", email: "mai.tuan.viet@framgia.com",
   password: "123456", role: :supervisor
+
+User.create name: "Le Van Manh", email: "le.van.manh@framgia.com", 
+  password: "lemanh", role: :trainee

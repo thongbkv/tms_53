@@ -128,3 +128,8 @@ en:
     inprogress: "Inprogress"
     generate: "Course include: "
     subject: "Subjects"
+  courses:
+    status: "%{status} course"
+    removed: " which has since been removed"
+    name: "Activities"
+    time: "(%{time})"

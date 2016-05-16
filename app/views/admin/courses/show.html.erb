@@ -75,25 +75,17 @@
                 <% end %>
               </div>
             </div>
-            <div class="tt-trainee">
+            <div class="tt-trainer">
               <h4><%= t "admin.trainee_in_course" %></h4>
-                <table class="table table-striped table-hover">
-                  <thead>
-                    <th><%= t "admin.stt" %></th>
-                    <th><%= t "admin.course_name" %></th>
-                    <th></th>
-                  </thead>
-                  <tbody>
-                    <% @course.users.trainee.each do |trainee_in_course| %>
-                      <tr>
-                        <td><%= link_to trainee_in_course.name, admin_user_path(trainee_in_course) %></td>
-                        <td><%= link_to t("admin.delete_course"), "#",
-                          method: :delete, data: {confirm: t("admin.delete_message")} %>
-                        </td>
-                      </tr>
-                     <% end %>
-                  </tbody>
-                </table>
+              <div class="tt-trainee-list">
+                <% @course.users.trainee.each do |trainee_in_course| %>
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="media-heading"><%= link_to trainee_in_course.name, admin_user_path(trainee_in_course) %></h6>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

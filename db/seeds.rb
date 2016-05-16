@@ -37,3 +37,8 @@ Subject.create title: "ruby", description: "basic ruby"
 Subject.create title: "ruby on rails", description: "ruby on rails"
 
 Subject.create title: "git", description: "git"
+User.create name: "user", email: "user@framgia.com",
+  password: "lemanh", role: :trainee
+
+Course.create name: "Course-1", description: "description - 1", user_id: 1
+Course.create name: "Course-2", description: "description - 2", user_id: 2

@@ -3,3 +3,8 @@ avatar_size_default: 50
 avatar_size_profile: 30
 following: "following"
 followers: "followers"
+joined: "joined trainee"
+removed: "removed trainee"
+removed_trainer: "removed trainer"
+joined_trainer: "joined trainer"
+course_status: "%{status} course"

@@ -50,7 +50,7 @@ class Admin::CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit :name, :description, :status, subject_ids:[],
+    params.require(:course).permit :name, :description, :status, :user_id, subject_ids:[],
       user_ids: []
   end
 

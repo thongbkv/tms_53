@@ -113,3 +113,6 @@ en:
     sure: "You sure?"
     list_subject: "List Subjects"
     new_subject: New Subject
+    destroy_user: "Delete"
+    sure: "You sure?"
+    list_user: "List Users"

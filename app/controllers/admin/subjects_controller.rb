@@ -38,7 +38,7 @@ class Admin::SubjectsController < ApplicationController
 
   def destroy
     if @subject.destroy
-      flash[:success] = t "destroy_success"
+      flash[:success] = t "controller.destroy_success"
       redirect_to admin_subjects_path
     end
   end

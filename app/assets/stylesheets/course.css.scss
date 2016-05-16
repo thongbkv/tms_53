@@ -1,0 +1,356 @@
+#courses{
+  .container {
+    max-width: 960px;
+  }
+
+  .thumbnail img {
+    min-width: 100%;
+  }
+
+  .col-xs-5c,
+  .col-sm-5c,
+  .col-md-5c,
+  .col-lg-5c {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .col-xs-5c {
+    width: 20%;
+    float: left;
+  }
+
+  @media (min-width: 768px) {
+    .col-sm-5c {
+      width: 20%;
+      float: left;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .col-md-5c {
+      width: 20%;
+      float: left;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .col-lg-5c {
+      width: 20%;
+      float: left;
+    }
+  }
+
+  .col-xs-7c,
+  .col-sm-7c,
+  .col-md-7c,
+  .col-lg-7c {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .col-xs-7c {
+    width: 14.28%;
+    float: left;
+  }
+
+  @media (min-width: 768px) {
+    .col-sm-7c {
+      width: 14.28%;
+      float: left;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .col-sm-7c {
+      width: 14.28%;
+      float: left;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .col-sm-7c {
+      width: 14.28%;
+      float: left;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #frg-header .navbar-nav {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+
+  body {
+    font-family: 'Open Sans';
+  }
+
+  .container-fluid {
+      max-width: 1100px !important;
+  }
+
+  .tt-main {
+    background: #F6F8F8;
+    font-family: 'Open Sans';
+    font-size: 14px;
+  }
+
+  .tt-banner {
+    background: #4A82BA;
+    padding: 50px 0px;
+  }
+
+  .tt-banner .well {
+    background: #4A82BA !important;
+    color: #eee;
+    font-weight: 300;
+    border: none;
+    padding: 0;
+  }
+
+  .tt-banner .well h1 {
+    font-weight: 300;
+  }
+
+  .tt-banner .well p {
+    max-width: 500px;
+    font-size: 16px;
+  }
+
+  .tt-content {
+    color: #575a5b;
+  }
+
+  .tt-course {
+    padding-bottom: 20px;
+  }
+
+  .tt-course-summary {
+    padding: 10px 0px;
+  }
+
+  .tt-course-summary h4 {
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+  .tt-course-summary p {
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  .tt-subject {
+  }
+
+  .tt-subject .media {
+    position: relative;
+    background: #fff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 3px;
+    height: 55px;
+    border: 2px solid #fff;
+    box-shadow: 1px 1px 2px #aaa;
+    margin-left: 100px;
+  }
+
+  .tt-subject .media img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tt-subject .media h6 {
+    color: #AEBDC1;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 5px;
+  }
+
+  .tt-subject .media p {
+    color: #50C3EE;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .tt-subject .media p a {
+    color: #50C3EE;
+    transition: 0.5s;
+  }
+
+  .tt-subject .media p a:hover {
+    color: #3C92B3;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+
+  .tt-subject .media .media-right {
+    min-width: 100px;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  .tt-subject .media .media-right a {
+    border: 1px;
+    border-radius: 15px;
+    transition: 0.4s;
+  }
+
+  .tt-subject .media .media-right a:hover {
+    transition: 0.4s;
+  }
+
+  .tt-trainer-summary {
+    padding-top: 20px;
+    padding-left: 100px;
+    text-align: center;
+  }
+
+  .tt-trainer-summary div {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1px #aaa;
+    padding-top: 24px;
+  }
+
+  .tt-trainer-summary div img {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    opacity: 0.6;
+    margin-bottom: 24px;
+  }
+
+  .tt-trainer-summary h6 {
+    color: #AEBDC1;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  .tt-trainer-summary p {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .tt-trainer-summary ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tt-trainer-summary ul li {
+    border-top: 1px solid #eee;
+    padding: 10px;
+  }
+
+  .tt-trainer-summary ul li a {
+    color: #333;
+    transition: 0.4s;
+    font-weight: 600;
+  }
+
+  .tt-trainer-summary ul li a:hover {
+    color: #2298CC;
+    transition: 0.4s;
+    text-decoration: none;
+  }
+
+  .tt-trainer {
+    padding-left: 100px;
+    padding-top: 20px;
+  }
+
+  .tt-trainer h4 {
+    color: #AEBDC1;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .tt-trainee-list {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .tt-trainee-list .media {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: 1px 1px 1px #eee;
+    margin-left: 10px;
+    transition: 0.4s;
+  }
+
+  .tt-trainee-list .media img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .tt-trainee-list .media .media-body {
+    vertical-align: middle;
+  }
+
+  .tt-trainee-list .media h6 a {
+    font-size: 12px;
+    color: #8A9699;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: 0.4s;
+  }
+
+  .tt-trainee-list .media:hover {
+    background: #2298CC;
+    transition: 0.4s;
+  }
+
+  .tt-trainee-list .media:hover h6 a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.4s;
+  }
+
+  @media (max-width: 400px) {
+    .tt-subject .media-body {
+      vertical-align: middle;
+    }
+
+    .tt-subject .media-body p {
+      display: none;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .tt-subject .media-right a {
+    }
+  }
+
+  @media (max-width: 767px) {
+    .tt-subject .media {
+      margin-left: 0;
+    }
+    .tt-trainer {
+      padding-left: 0;
+    }
+  }
+
+  .media-heading {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .media-middle {
+    vertical-align: middle;
+  }
+
+  .media-body{
+    padding-left: 3%
+  }
+}

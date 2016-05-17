@@ -15,10 +15,8 @@ ActiveRecord::Schema.define(version: 20160506090516) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "target_id"
-    t.string   "target_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"

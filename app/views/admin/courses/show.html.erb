@@ -11,6 +11,19 @@
                 <div class="pull-right">
                   <p><%= link_to t("admin.add_supervisor_to_course"),
                     edit_admin_course_assign_trainers_path(@course) %></p>
+                  <div class="btn-group pull-right">
+                    <% if @course.init? %>
+                      <%= form_for [:admin, @course] do |f| %>
+                        <%= f.hidden_field :status, value: :inprogress %>
+                        <%= f.submit t("admin.start_course") %>
+                      <% end %>
+                    <% elsif @course.inprogress? %>
+                      <%= form_for [:admin, @course] do |f| %>
+                        <%= f.hidden_field :status, value: :finished %>
+                        <%= f.submit t("admin.finish_course") %>
+                      <% end %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
               <div class="tt-subject">
@@ -18,7 +31,7 @@
                 <% @course.subjects.each do |subject| %>
                   <div class="media">
                     <div class="media-body">
-                      <p class="media-middle"><%= link_to subject.title, admin_subject_path %></p>
+                      <p class="media-middle"><%= link_to subject.title, admin_subject_path(subject) %></p>
                     </div>
                   </div>
                 <% end %>
@@ -67,6 +80,7 @@
             </div>
           </div>
         </div>
-     </div>
-   </div>
+      </div>
+    </div>
+  </div>
 </div>

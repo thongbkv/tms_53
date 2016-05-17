@@ -19,7 +19,7 @@ class Admin::SubjectsController < ApplicationController
       flash[:success] = t "controller.create_subject_success"
       redirect_to admin_subjects_path
     else
-      flash[:danger] = t "error_subject"
+      flash[:danger] = t "controller.error_subject"
       render :new
     end
   end

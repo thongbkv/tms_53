@@ -15,11 +15,25 @@ User.create name: "Nguyen Binh Dieu", email: "nguyen.binh.dieu@framgia.com",
 User.create name: "Mai Tuan Viet", email: "mai.tuan.viet@framgia.com",
   password: "123456", role: :supervisor
 
-User.create name: "Le Van Manh", email: "le.van.manh@framgia.com", 
+User.create name: "Le Van Manh", email: "le.van.manh@framgia.com",
   password: "123456", role: :trainee
-  
-User.create name: "Le Manh", email: "lemanh@framgia.com",
-  password: "lemanh", role: :trainee
 
-User.create name: "user", email: "user@framgia.com",
-  password: "lemanh", role: :trainee
+User.create name: "Naoko", email: "huyentrangto@yahoo.com",
+  password: "123456", role: :trainee
+
+User.create name: "Min", email: "huyentrang@yahoo.com",
+  password: "123456", role: :trainee
+
+UserCourse.create user_id: "4", course_id: "1"
+
+UserCourse.create user_id: "5", course_id: "1"
+
+Subject.create title: "Subject-1", description: "subject-1-description"
+
+Subject.create title: "Subject-2", description: "subject-2-description"
+
+Subject.create title: "ruby", description: "basic ruby"
+
+Subject.create title: "ruby on rails", description: "ruby on rails"
+
+Subject.create title: "git", description: "git"

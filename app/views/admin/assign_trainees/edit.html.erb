@@ -10,6 +10,7 @@
           <% if @course_users.include? user %>
             <%= user_course_builder.check_box :_destroy, {checked: true}, false, true %>
             <%= user_course_builder.hidden_field :user_id, value: user.id %>
+            <%= user_course_builder.object.id %>
           <% else %>
             <%= user_course_builder.check_box :user_id, {checked: false}, user.id, nil %>
           <% end %>

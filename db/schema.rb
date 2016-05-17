@@ -22,12 +22,14 @@ ActiveRecord::Schema.define(version: 20160506090516) do
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "course_subjects", force: :cascade do |t|
+    t.integer  "status",     default: 0
     t.integer  "course_id"
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
+  add_index "course_subjects", ["course_id", "subject_id"], name: "index_course_subjects_on_course_id_and_subject_id", unique: true
   add_index "course_subjects", ["course_id"], name: "index_course_subjects_on_course_id"
   add_index "course_subjects", ["subject_id"], name: "index_course_subjects_on_subject_id"
 

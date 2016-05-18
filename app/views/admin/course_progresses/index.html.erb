@@ -1,0 +1,39 @@
+<div id="courses">
+  <div class="tt-main">
+    <div class="tt-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8">
+            <div class="tt-course">
+              <div class="tt-course-summary">
+                <h4><%= t "view_progress_course" %></h4>
+                <%= t "admin.generate" %>
+                <p><%= pluralize @course.subjects.count, t("admin.subject") %></p>
+                <p><%= @course.users.supervisor.count %><%= t("trainer_in_course") %></p>
+                <p><%= @course.users.trainee.count %><%= t("trainee_in_course") %></p>
+                <% @course.course_subjects.each do |subject| %>
+                  <% if subject.init? %>
+                    <p class="text-success"><%= subject.subject.title %><%= t "admin.init" %></p>
+                  <% elsif subject.inprogress? %>
+                    <p class="text-info" ><%= subject.subject.title %><%= t "admin.inprogress"%></p>
+                  <% else subject.finished? %>
+                    <p class="text-primary" ><%= subject.subject.title %><%= t "admin.finished" %></p>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="tt-trainer-summary hidden-xs">
+              <div class="tt-course-logo">
+                <img class="img-responsive"
+                  src="https://www.codeschool.com/assets/paths/badge-ruby-8fd86979e1ec714f4f41dd3cabedc651.svg"
+                  alt="<%= t("admin.image_name") %>">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

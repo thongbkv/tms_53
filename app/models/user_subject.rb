@@ -4,4 +4,5 @@ class UserSubject < ActiveRecord::Base
   belongs_to :subject
 
   has_many :user_tasks, dependent: :destroy
+  enum status: [:init, :inprogress, :finished]
 end

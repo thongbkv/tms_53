@@ -11,6 +11,8 @@
                 <div class="pull-right">
                   <p><%= link_to t("admin.add_supervisor_to_course"),
                     edit_admin_course_assign_trainers_path(@course) %></p>
+                  <p><%= link_to t("admin.view_progress"),
+                    admin_course_course_progresses_path(@course) %></p>
                   <div class="btn-group pull-right">
                     <% if @course.init? %>
                       <%= form_for [:admin, @course] do |f| %>

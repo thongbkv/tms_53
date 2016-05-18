@@ -119,3 +119,7 @@ en:
     start_course: "Start Course"
     finish_course: "Finish Course"
     update_error: "Error!"
+    finished: "Finish"
+    inprogress: "Inprogress"
+    successfully: "Successfully!"
+    error: "Error!"

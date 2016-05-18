@@ -8,7 +8,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-    @members = @course.user_courses
+    @course_subjects = @course.course_subjects
   end
 
   def new

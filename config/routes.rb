@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     end
     resources :subjects
     resources :user_courses, only: [:destroy]
+    resources :course_subjects, only: [:update]
   end
 end

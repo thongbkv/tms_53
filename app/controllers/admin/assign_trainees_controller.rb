@@ -12,7 +12,6 @@ class Admin::AssignTraineesController < ApplicationController
       flash[:success] = t "admin.create_success_course_user"
       redirect_to admin_course_path @course
     else
-      load_users
       redirect_to edit_admin_assign_trainees_path
     end
   end

@@ -28,6 +28,6 @@ class Admin::AssignTraineesController < ApplicationController
   end
 
   def load_users
-    @users = User.trainee
+    @users = User.trainee.free
   end
 end

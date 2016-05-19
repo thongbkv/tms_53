@@ -9,8 +9,14 @@
                 <h4><%= t "view_progress_course" %></h4>
                 <%= t "admin.generate" %>
                 <p><%= pluralize @course.subjects.count, t("admin.subject") %></p>
+
                 <p><%= @course.users.supervisor.count %><%= t("trainer_in_course") %></p>
+
                 <p><%= @course.users.trainee.count %><%= t("trainee_in_course") %></p>
+                <% @course.users.trainee.each do |trainee| %>
+                  <p><%= trainee.name %>
+                <% end %>
+
                 <% @course.course_subjects.each do |subject| %>
                   <% if subject.init? %>
                     <p class="text-success"><%= subject.subject.title %><%= t "admin.init" %></p>

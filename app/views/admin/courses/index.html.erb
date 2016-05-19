@@ -19,13 +19,15 @@
             <td><%= link_to t("admin.delete_course"), admin_course_path(course),
               method: :delete, data: {confirm: t("admin.delete_message")} %>
             </td>
-            <td><%= link_to t("admin.edit_course"), edit_admin_course_path(course) %><td>
-            <td><%= link_to t("admin.add_supervisor_to_course"),
-              edit_admin_course_assign_trainers_path(course) %>
-            </td>
-            <td><%= link_to t("admin.add_trainee_to_course"),
-              edit_admin_course_assign_trainees_path(course) %>
-            </td>
+            <% if !course.finished? %>
+              <td><%= link_to t("admin.edit_course"), edit_admin_course_path(course) %><td>
+              <td><%= link_to t("admin.add_supervisor_to_course"),
+                edit_admin_course_assign_trainers_path(course) %>
+              </td>
+              <td><%= link_to t("admin.add_trainee_to_course"),
+                edit_admin_course_assign_trainees_path(course) %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

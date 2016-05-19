@@ -9,8 +9,12 @@
                 <h4><%= @course.name %></h4>
                 <p><%= @course.description %></p>
                 <div class="pull-right">
-                  <p><%= link_to t("admin.add_supervisor_to_course"),
-                    edit_admin_course_assign_trainers_path(@course) %></p>
+                  <% if !@course.finished?%>
+                    <p><%= link_to t("admin.add_supervisor_to_course"),
+                      edit_admin_course_assign_trainers_path(@course) %></p>
+                    <p><%= link_to t("admin.add_trainee_to_course"),
+                    edit_admin_course_assign_trainees_path(@course) %></p>
+                  <% end %>
                   <p><%= link_to t("admin.view_progress"),
                     admin_course_course_progresses_path(@course) %></p>
                   <div class="btn-group pull-right">
@@ -47,10 +51,6 @@
                       method: :put, class: "label label-default" %>
                   <% end %>
                 <% end %>
-                <div class="pull-right">
-                  <p><%= link_to t("admin.add_trainee_to_course"),
-                    edit_admin_course_assign_trainees_path(@course) %></p>
-                </div>
               </div>
             </div>
           </div>

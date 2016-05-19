@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  QUERY = "id NOT IN (SELECT uc.user_id FROM user_courses AS uc
+    INNER JOIN courses AS c ON uc.course_id = c.id
+    WHERE c.status = 1)"
+
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: :follower_id, dependent: :destroy
   has_many :passive_relationships, class_name: Relationship.name,
@@ -24,6 +28,8 @@ class User < ActiveRecord::Base
     uniqueness: true
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}
+
+  scope :free, ->{where QUERY}
 
   class << self
     def digest string

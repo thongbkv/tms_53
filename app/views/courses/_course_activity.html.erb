@@ -1,0 +1,11 @@
+<% @activities.each do |activity| %>
+  <% if activity.content && activity.target_id == @course.id %>
+    <h5>
+      <%= link_to activity.user.name, activity.user if activity.user %>
+      <%= activity.content %>
+      <%= link_to activity.target, "" %>
+      <%= t "courses.time", time: activity.created_at %>
+    </h5>
+    <hr>
+  <% end %>
+<% end %>

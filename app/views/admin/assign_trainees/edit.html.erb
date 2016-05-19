@@ -6,19 +6,21 @@
       <%= render "shared/error_messages", object: @course %>
       <%= f.hidden_field :id %>
       <%= f.fields_for :user_courses do |user_course_builder| %>
-        <% if user_course_builder.object.new_record? %>
-          <%= user_course_builder.check_box :user_id,
-            {checked: false}, user_course_builder.object.user_id, nil %>
-        <% else %>
-          <%= user_course_builder.check_box :_destroy,
-            {checked: true}, false, true %>
-          <%= user_course_builder.hidden_field :user_id,
-            value: user_course_builder.object.user_id %>
-          <%= user_course_builder.hidden_field :id,
-            value: user_course_builder.object.id %>
+        <% if user_course_builder.object.user.trainee? %>
+          <% if user_course_builder.object.new_record? %>
+            <%= user_course_builder.check_box :user_id,
+              {checked: false}, user_course_builder.object.user_id, nil %>
+          <% else %>
+            <%= user_course_builder.check_box :_destroy,
+              {checked: true}, false, true %>
+            <%= user_course_builder.hidden_field :user_id,
+              value: user_course_builder.object.user_id %>
+            <%= user_course_builder.hidden_field :id,
+              value: user_course_builder.object.id %>
+          <% end %>
+          <%= user_course_builder.object.user.name %>
+          <br />
         <% end %>
-        <%= user_course_builder.object.user.name %>
-        <br />
       <% end %>
       <%= f.submit t("admin.add_trainee_to_course"), class: "btn btn-primary" %>
     <% end %>

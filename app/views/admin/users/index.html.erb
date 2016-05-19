@@ -10,7 +10,7 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.name %></td>
+            <td><%= link_to user.name, user %></td>
             <td><%= user.email %></td>
             <td>
               <%= link_to [:admin, user], method: :delete, data: {confirm: t("admin.sure")},
@@ -22,5 +22,8 @@
         <% end %>
       </tbody>
     </table>
+    <%= link_to [:new, :user], class: "btn btn-primary btn-xs" do %>
+      <span class="glyphicon glyphicon-eye-open"></span> <%= t "layouts.new_user" %>
+    <% end %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class Admin::SubjectsController < ApplicationController
   before_action :logged_in_user, :require_admin
-  before_action :find_subject, except: [:new, :index]
+  before_action :find_subject, except: [:new, :index, :create]
 
   def index
     @subjects = Subject.paginate page: params[:page]

@@ -4,7 +4,9 @@ class Admin::AssignTraineesController < ApplicationController
   before_action :load_users, only: :edit
 
   def edit
-    @course_users = @course.users
+    @users.each do |user|
+      @course.user_courses.find_or_initialize_by user: user
+    end
   end
 
   def update

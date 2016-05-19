@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :logged_in_user, :require_admin
-  before_action :find_user, only: [:destroy]
+  before_action :find_user, only: [:destroy, :show]
 
   def index
     @users = User.paginate page: params[:page]

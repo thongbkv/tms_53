@@ -4,19 +4,21 @@
     <%= form_for @course, url: admin_course_assign_trainees_path(@course),
       method: :patch do |f| %>
       <%= render "shared/error_messages", object: @course %>
-
-      <% @users.each do |user| %>
-        <%= f.fields_for :user_courses, @course.user_courses.build do |user_course_builder| %>
-          <% if @course_users.include? user %>
-            <%= user_course_builder.check_box :_destroy, {checked: true}, false, true %>
-            <%= user_course_builder.hidden_field :user_id, value: user.id %>
-            <%= user_course_builder.object.id %>
-          <% else %>
-            <%= user_course_builder.check_box :user_id, {checked: false}, user.id, nil %>
-          <% end %>
-          <%= user.name %>
-          <br>
+      
+      <%= f.fields_for :user_courses do |user_course_builder| %>
+        <% if user_course_builder.object.new_record? %>
+          <%= user_course_builder.check_box :user_id, 
+            {checked: false}, user_course_builder.object.user_id %>
+        <% else %>
+          <%= user_course_builder.check_box :_destroy, 
+            {checked: true}, false, true %> 
+          <%= user_course_builder.hidden_field :user_id, 
+            value: user_course_builder.object.user_id %>
+          <%= user_course_builder.hidden_field :id, 
+            value: user_course_builder.object.id %>
         <% end %>
+        <%= user_course_builder.object.user.name %>
+        <br />
       <% end %>
       <%= f.submit t("admin.add_trainee_to_course"), class: "btn btn-primary" %>
     <% end %>

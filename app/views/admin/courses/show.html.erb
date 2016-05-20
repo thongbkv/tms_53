@@ -46,7 +46,8 @@
                     <%= link_to t("admin.finish"), admin_course_subject_path(
                       course_subject, "course_subject[status]": :finished),
                       method: :put, class: "btn btn-primary" %>
-                  <% else link_to t("admin.inprogress"), admin_course_subject_path(
+                  <% else %>
+                    <%= link_to t("admin.inprogress"), admin_course_subject_path(
                       course_subject, "course_subject[status]": :inprogress),
                       method: :put, class: "label label-default" %>
                   <% end %>

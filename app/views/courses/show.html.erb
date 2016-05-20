@@ -1,2 +1,61 @@
-<h3><%= t "activities.name" %></h3><br>
-<%= render "course_activity" %>
+<div id="courses">
+  <div class="tt-main">
+    <div class="tt-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8">
+            <div class="tt-course">
+              <div class="tt-course-summary">
+                <h4><%= @course.name %></h4>
+                <p><%= @course.description %></p>
+              </div>
+              <div class="tt-subject">
+                <p><%= t "admin.list_subject_in_course" %></p>
+                <% @course.subjects.each do |course_subject| %>
+                  <div class="media">
+                    <div class="media-body">
+                      <p class="media-middle"><%= course_subject.title %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="tt-trainer-summary hidden-xs">
+              <div class="tt-course-logo">
+                <%= image_tag("https://www.codeschool.com/assets/paths/badge-ruby-
+                  8fd86979e1ec714f4f41dd3cabedc651.svg", alt: t("admin.image_name"),
+                  class: "menu_icon") %>
+              </div>
+            </div>
+            <div class="tt-trainer">
+              <h4><%= t "admin.trainer_in_course" %></h4>
+              <div class="tt-trainee-list">
+                <% @course.users.supervisor.each do |trainer_in_course| %>
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="media-heading"><%= link_to trainer_in_course.name %></h6>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="tt-trainer">
+              <h4><%= t "admin.trainee_in_course" %></h4>
+              <div class="tt-trainee-list">
+                <% @course.users.trainee.each do |trainee_in_course| %>
+                  <div class="media">
+                    <div class="media-body">
+                      <h6 class="media-heading"><%= link_to trainee_in_course.name %></h6>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

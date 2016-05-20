@@ -3,7 +3,7 @@
     <% if logged_in? %>
       <ul class="all-courses">
         <% @courses.each do |course| %>
-          <p class="course-name"><%= course.name %></p>
+          <p class="course-name"><%= link_to course.name, course %></p>
           <p><%= course.description %></p>
         <% end %>
       </ul>

@@ -1,0 +1,27 @@
+<div id="courses">
+  <div class="tt-main">
+    <div class="tt-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8">
+            <div class="tt-subject">
+              <div class="tt-subject-summary">
+                <h4><%= @subjects.title %></h4>
+                <p><%= @subjects.description %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="tt-summary hidden-xs">
+              <div class="tt-subject-logo">
+                <%= image_tag("https://www.codeschool.com/assets/paths/badge-ruby-
+                  8fd86979e1ec714f4f41dd3cabedc651.svg", alt: t("admin.image_name"), 
+                  class: "menu_icon") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

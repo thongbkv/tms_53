@@ -14,7 +14,7 @@
                 <% @course.subjects.each do |course_subject| %>
                   <div class="media">
                     <div class="media-body">
-                      <p class="media-middle"><%= course_subject.title %></p>
+                      <p class="media-middle"><%= link_to course_subject.title, subject_path %></p>
                     </div>
                   </div>
                 <% end %>

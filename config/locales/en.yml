@@ -46,6 +46,8 @@ en:
     error_subject: "Error!"
     destroy_success: "Delete success!"
   create:
+    title: "Title"
+    content: "Content"
     message_success: "Welcome to the Framgia Training System!"
   shared:
     error: "error"

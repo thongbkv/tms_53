@@ -1,6 +1,6 @@
 <div class="input-group fields">
-  <%= f.text_field :title, class: "task_field form-control" %>
-  <%= f.text_field :content, class: "form-control" %>
+  <%= f.text_field :title, placeholder: t("create.title"), class: "task_field form-control" %>
+  <%= f.text_field :content, placeholder: t("create.content"), class: "form-control" %>
   <span class="input-group-addon">
     <%= link_to_remove_fields f %>
   </span>

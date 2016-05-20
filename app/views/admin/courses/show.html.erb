@@ -34,23 +34,27 @@
                   </div>
                 </div>
               </div>
-              <div class="tt-subject">
+              <div class="tt-subject col-md-8">
                 <p><%= t "admin.list_subject_in_course" %></p>
                 <% @course_subjects.each do |course_subject| %>
                   <div class="media">
                     <div class="media-body">
                       <p class="media-middle"><%= link_to course_subject.subject.title,
                         admin_subject_path(course_subject.subject) %>
-                        <% if course_subject.inprogress? %>
-                          <span class="pull-right"><%= link_to t("admin.finish"),
-                            admin_course_subject_path(course_subject, "course_subject[status]": :finished),
-                            method: :put, class: "btn btn-primary" %>
-                          </span>
-                        <% else %>
-                          <span class="pull-right"><%=link_to t("admin.inprogress"),
-                            admin_course_subject_path(course_subject, "course_subject[status]": :inprogress),
-                            method: :put, class: "label label-default" %>
-                          </span>
+                        <% if @course.inprogress? %>
+                          <div class="btn-group pull-right">
+                            <% if course_subject.init? %>
+                              <%= form_for [:admin, course_subject] do |f| %>
+                                <%= f.hidden_field :status, value: :inprogress %>
+                                <%= f.submit t("admin.start_subject") %>
+                              <% end %>
+                            <% elsif course_subject.inprogress? %>
+                              <%= form_for [:admin, course_subject] do |f| %>
+                                <%= f.hidden_field :status, value: :finished %>
+                                <%= f.submit t("admin.finish_subject") %>
+                              <% end %>
+                            <% end %>
+                          </div>
                         <% end %>
                       </p>
                     </div>

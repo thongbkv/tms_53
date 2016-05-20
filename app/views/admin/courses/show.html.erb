@@ -8,27 +8,29 @@
               <div class="tt-course-summary">
                 <h4><%= @course.name %></h4>
                 <p><%= @course.description %></p>
-                <div class="pull-right">
-                  <% if !@course.finished?%>
-                    <p><%= link_to t("admin.add_supervisor_to_course"),
-                      edit_admin_course_assign_trainers_path(@course) %></p>
-                    <p><%= link_to t("admin.add_trainee_to_course"),
-                    edit_admin_course_assign_trainees_path(@course) %></p>
-                  <% end %>
-                  <p><%= link_to t("admin.view_progress"),
-                    admin_course_course_progresses_path(@course) %></p>
-                  <div class="btn-group pull-right">
-                    <% if @course.init? %>
-                      <%= form_for [:admin, @course] do |f| %>
-                        <%= f.hidden_field :status, value: :inprogress %>
-                        <%= f.submit t("admin.start_course") %>
-                      <% end %>
-                    <% elsif @course.inprogress? %>
-                      <%= form_for [:admin, @course] do |f| %>
-                        <%= f.hidden_field :status, value: :finished %>
-                        <%= f.submit t("admin.finish_course") %>
-                      <% end %>
+                <div class="col-md-4 col-offset-8 pull-right action_in_course">
+                  <div class="pull-right">
+                    <% unless @course.finished? %>
+                      <p><%= link_to t("admin.add_supervisor_to_course"),
+                        edit_admin_course_assign_trainers_path(@course) %></p>
+                      <p><%= link_to t("admin.add_trainee_to_course"),
+                        edit_admin_course_assign_trainees_path(@course) %></p>
                     <% end %>
+                    <p><%= link_to t("admin.view_progress"),
+                      admin_course_course_progresses_path(@course) %></p>
+                    <div class="btn-group pull-right">
+                      <% if @course.init? %>
+                        <%= form_for [:admin, @course] do |f| %>
+                          <%= f.hidden_field :status, value: :inprogress %>
+                          <%= f.submit t("admin.start_course") %>
+                        <% end %>
+                      <% elsif @course.inprogress? %>
+                        <%= form_for [:admin, @course] do |f| %>
+                          <%= f.hidden_field :status, value: :finished %>
+                          <%= f.submit t("admin.finish_course") %>
+                        <% end %>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -38,19 +40,21 @@
                   <div class="media">
                     <div class="media-body">
                       <p class="media-middle"><%= link_to course_subject.subject.title,
-                        admin_subject_path(course_subject.subject) %></p>
+                        admin_subject_path(course_subject.subject) %>
+                        <% if course_subject.inprogress? %>
+                          <span class="pull-right"><%= link_to t("admin.finish"),
+                            admin_course_subject_path(course_subject, "course_subject[status]": :finished),
+                            method: :put, class: "btn btn-primary" %>
+                          </span>
+                        <% else %>
+                          <span class="pull-right"><%=link_to t("admin.inprogress"),
+                            admin_course_subject_path(course_subject, "course_subject[status]": :inprogress),
+                            method: :put, class: "label label-default" %>
+                          </span>
+                        <% end %>
+                      </p>
                     </div>
                   </div>
-                  <p><%= course_subject.status %></p>
-                  <% if course_subject.inprogress? %>
-                    <%= link_to t("admin.finish"), admin_course_subject_path(
-                      course_subject, "course_subject[status]": :finished),
-                      method: :put, class: "btn btn-primary" %>
-                  <% else %>
-                    <%= link_to t("admin.inprogress"), admin_course_subject_path(
-                      course_subject, "course_subject[status]": :inprogress),
-                      method: :put, class: "label label-default" %>
-                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -58,9 +62,8 @@
           <div class="col-xs-12 col-sm-4">
             <div class="tt-trainer-summary hidden-xs">
               <div class="tt-course-logo">
-                <img class="img-responsive"
-                 src="https://www.codeschool.com/assets/paths/badge-ruby-8fd86979e1ec714f4f41dd3cabedc651.svg"
-                 alt=t("admin.image_name")>
+                <%= image_tag("https://www.codeschool.com/assets/paths/badge-ruby-8fd86979e1ec714f4f41dd3cabedc651.svg",
+                  alt: t("admin.image_name"), class: "menu_icon") %>
               </div>
             </div>
             <div class="tt-trainer">
@@ -82,7 +85,8 @@
                 <% @course.users.trainee.each do |trainee_in_course| %>
                   <div class="media">
                     <div class="media-body">
-                      <h6 class="media-heading"><%= link_to trainee_in_course.name, admin_user_path(trainee_in_course) %></h6>
+                      <h6 class="media-heading"><%= link_to trainee_in_course.name,
+                        admin_user_path(trainee_in_course) %></h6>
                     </div>
                   </div>
                 <% end %>

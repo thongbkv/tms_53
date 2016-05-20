@@ -11,7 +11,7 @@
       <tbody>
         <% @subjects.each do |subject| %>
           <tr>
-            <td><%= subject.title %></td>
+            <td><%= link_to subject.title, admin_subject_path(subject) %></td>
             <td><%= subject.description %></td>
             <td>
               <%= link_to [:edit, :admin, subject], class: "btn btn-primary btn-xs" do %>

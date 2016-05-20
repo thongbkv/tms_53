@@ -9,6 +9,7 @@
   <%= f.label :tasks %>
   <%= f.fields_for :tasks do |builder| %>
     <%= render "task_fields", f: builder %>
+    <br/>
   <% end %>
   
   <p>

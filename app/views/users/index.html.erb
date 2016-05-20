@@ -5,7 +5,7 @@
   <% @users.each do |user| %>
   <li>
     <%= gravatar_for user, size: Settings.avatar_size %>
-    <%= user.name %>
+    <%= link_to user.name, user %>
   </li>
   <% end %>
 </ul>

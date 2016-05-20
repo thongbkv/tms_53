@@ -1,10 +1,14 @@
 <div class="row">
   <div class="col-md-8 col-offset-2">
-    <ul class="all-courses">
-      <% @courses.each do |course| %>
-        <p class="course-name"><%= course.name %></p>
-        <p><%= course.description %></p>
-      <% end %>
-    </ul>
+    <% if logged_in? %>
+      <ul class="all-courses">
+        <% @courses.each do |course| %>
+          <p class="course-name"><%= course.name %></p>
+          <p><%= course.description %></p>
+        <% end %>
+      </ul>
+    <% else %>
+      <script type="text/javascript"> alert("<%= t("alert.message_login_course")%>");</script>
+    <% end %>
   </div>
 </div>

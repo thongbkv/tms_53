@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def link_to_remove_fields f
     f.hidden_field(:_destroy) + link_to(raw("<span class='glyphicon glyphicon-remove'></span>"),
-      "#", onclick: "remove_fields(this)")
+      "javascript:void(0)", onclick: "remove_fields(this)")
   end
 
   def link_to_add_fields f, association
@@ -15,7 +15,7 @@ module ApplicationHelper
       render association.to_s.singularize + "_fields", f: builder
     end
     link_to raw("<span class='glyphicon glyphicon-plus-sign'></span> #{t :add_task}"),
-      "#", onclick: "add_fields(this, \"#{association}\",
+      "javascript:void(0)", onclick: "add_fields(this, \"#{association}\",
         \"#{escape_javascript(fields)}\")", class: "btn btn-default btn-block"
   end
 end

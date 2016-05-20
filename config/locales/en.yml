@@ -133,3 +133,6 @@ en:
     removed: " which has since been removed"
     name: "Activities"
     time: "(%{time})"
+  alert:
+    message_login_subject: "Please log in to view all subject.!"
+    message_login_course: "Please log in to view all course.!"

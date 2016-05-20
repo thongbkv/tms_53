@@ -33,7 +33,7 @@ class Admin::CoursesController < ApplicationController
     if @course.update_attributes course_params
       flash[:success] = t "admin.edit_course_message_success"
       respond_to do |format|
-        format.html {redirect_to :back}
+        format.html {redirect_to admin_course_path @course}
         format.js
       end
     else

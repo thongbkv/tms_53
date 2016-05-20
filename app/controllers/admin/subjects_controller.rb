@@ -30,7 +30,7 @@ class Admin::SubjectsController < ApplicationController
   def update
     if @subject.update_attributes subject_params
       flash[:success] = t "admin.edit_subject_message"
-      redirect_to edit_admin_subject_path
+      redirect_to admin_subject_path @subject
     else
       render :edit
     end
